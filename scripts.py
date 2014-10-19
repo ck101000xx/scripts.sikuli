@@ -78,6 +78,7 @@ while True:
         if not fixing_i8():
             go_port()
             break
+        wait(10)
         go_port()
     click(wait("1413605597225.png"))
     if returned_global:
