@@ -81,9 +81,10 @@ while True:
         if returned:
             for pair in decks[1:]: hokyu(*pair)
         go_port()
-        click(wait("1413690676832.png"))
-        if fixing_i8(): waitVanish("1413690572298.png")
-        go_port()
+        if battle_map == "3-2":
+            click(wait("1413690676832.png"))
+            if fixing_i8(): waitVanish("1413690572298.png")
+            go_port()
         
     click(wait("1413605597225.png"))
     if returned_global:
