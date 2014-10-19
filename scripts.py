@@ -34,7 +34,7 @@ def hokyu(active, inactive):
         click(inactive)
         wait(active)
     if click_if(Pattern("1413632686156.png").similar(0.95)):
-        while click_if(Pattern("1413632686156.png").similar(0.95)): pass
+        while click_if(Pattern("1413632686156.png").similar(0.95)): wait(0.5)
         click(wait("1413605362684.png"))
         wait("1413605538080.png")
         return True
