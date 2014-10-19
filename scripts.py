@@ -75,7 +75,7 @@ while True:
         go_port()
     while True:
         click(wait("1413690676832.png"))
-        if not fixing_i8:
+        if not fixing_i8():
             go_port()
             break
         go_port()
