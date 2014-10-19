@@ -22,11 +22,13 @@ def mission_result():
 
 def start_mission(space, mission, deck):
     active, inactive = deck
-    while not exists(mission, 0):
+    while not click_if(mission):
         click(space)
+    while not exists("1413605794951.png", 0) and not exists("1413715679772.png", 0):
+        pass
     if click_if("1413605794951.png"):
         while not exists(active):
-            click_if(inactive)            
+            click_if(inactive)
         click(wait("1413633803249.png"))
 
 def hokyu(active, inactive):
@@ -98,18 +100,14 @@ while True:
 #    click(wait("1413605681622.png"))
 #    click(wait("1413605771793.png"))
     click(wait("1413605794951.png"))
-    if exists("1413700897849.png"):
-        wait(10 * 60)
-        go_port()
-    else:
-        click(wait("1413605863955.png"))
-        wait("1413694329127.png")
-        while click_if("1413694329127.png"): pass
-        click(wait(Pattern("1413694559796.png").similar(0.90)))
-        while not exists("1413606152418.png", 0):
-            click_if("1413615405871.png")
-        click("1413606152418.png")
-        wait(1)
-        mouseMove(Location(0, 0))
-        click(wait("1413606152418.png"))
-        click(wait("1413606195311.png"))
+    click(wait("1413605863955.png"))
+    wait("1413694329127.png")
+    while click_if("1413694329127.png"): pass
+    click(wait(Pattern("1413715867460.png").similar(0.80)))
+    while not exists("1413606152418.png", 0):
+        click_if("1413615405871.png")
+    click("1413606152418.png")
+    wait(1)
+    mouseMove(Location(0, 0))
+    click(wait("1413606152418.png"))
+    click(wait("1413606195311.png"))
