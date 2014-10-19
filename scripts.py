@@ -97,6 +97,7 @@ while True:
     else:
         click(wait("1413636959019.png"))
     if battle_map is "3-2":
+        print("start 3-2")
         while not exists("1413693725906.png", 0):
             click_if("1413693351183.png")
         click("1413693725906.png")
