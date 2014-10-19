@@ -68,6 +68,7 @@ while True:
             print('hokyued all')
             break
         click(wait("1413617134671.png"))
+        mouseMove(Location(10, 10))
         wait("1413605460003.png")
         if not first_hokyued:
             hokyu(*decks[0])
