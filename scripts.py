@@ -2,7 +2,6 @@ Settings.MoveMouseDelay = 0
 setAutoWaitTimeout(FOREVER)
 decks = map(lambda pair: map(lambda pattern: Pattern(pattern).similar(0.9), pair)
     , [("1413632300064.png", "1413632333979.png"), ("1413632425193.png", "1413632400432.png"), ("1413632475923.png", "1413632448473.png")])
-
 def click_if(pattern):
     e = exists(pattern, 0)
     if not e: return False
@@ -56,6 +55,10 @@ def fixing_i8():
             wait("1413690572298.png")
             return True
     return False
+try:
+    battle_map = sys.argv[1]
+except:
+    battle_map = None
 while True:
     wait("1413617134671.png")
     first_hokyued = False
@@ -87,27 +90,38 @@ while True:
         click(wait("1413633517841.png"))
         start_mission("1413687889991.png", "1413687157384.png", decks[1])
         start_mission("1413687838412.png", "1413687917048.png", decks[2])
-
         while not exists("1413635164833.png", 0):
             click("1413635231796.png")
     else:
         click(wait("1413636959019.png"))
-    while not exists("1413693725906.png", 0):
-        click_if("1413693351183.png")
-    click("1413693725906.png")
-    
-    
-#    click(wait("1413605681622.png"))
-#    click(wait("1413605771793.png"))
-    click(wait("1413605794951.png"))
-    click(wait("1413605863955.png"))
-    wait("1413694329127.png")
-    while click_if("1413694329127.png"): pass
-    click(wait(Pattern("1413715867460.png").similar(0.80)))
-    while not exists("1413606152418.png", 0):
-        click_if("1413615405871.png")
-    click("1413606152418.png")
-    wait(1)
-    mouseMove(Location(0, 0))
-    click(wait("1413606152418.png"))
-    click(wait("1413606195311.png"))
+    if battle_map is "3-2":
+        while not exists("1413693725906.png", 0):
+            click_if("1413693351183.png")
+        click("1413693725906.png")
+        click(wait("1413605794951.png"))
+        click(wait("1413605863955.png"))
+        wait("1413694329127.png")
+        while click_if("1413694329127.png"): pass
+        click(wait(Pattern("1413715867460.png").similar(0.80)))
+        while not exists("1413606152418.png", 0):
+            click_if("1413615405871.png")
+        click("1413606152418.png")
+        wait(1)
+        mouseMove(Location(0, 0))
+        click(wait("1413606152418.png"))
+        click(wait("1413606195311.png"))
+    else if battle_map is "1-5"
+        click(wait("1413605681622.png"))
+        click(wait("1413605771793.png"))
+        click(wait("1413605794951.png"))
+        click(wait("1413605863955.png"))
+        while not exists("1413606152418.png", 0):
+            click_if("1413615405871.png")
+        click("1413606152418.png")
+        wait(1)
+        mouseMove(Location(0, 0))
+        click(wait("1413606152418.png"))
+        click(wait("1413606195311.png"))
+    else:
+        wait(5 * 60)
+        go_port()
