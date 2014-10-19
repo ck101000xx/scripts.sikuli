@@ -110,7 +110,7 @@ while True:
         mouseMove(Location(0, 0))
         click(wait("1413606152418.png"))
         click(wait("1413606195311.png"))
-    else if battle_map is "1-5"
+    else if battle_map is "1-5":
         click(wait("1413605681622.png"))
         click(wait("1413605771793.png"))
         click(wait("1413605794951.png"))
