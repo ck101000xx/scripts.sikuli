@@ -57,8 +57,10 @@ def fixing_i8():
     return False
 try:
     battle_map = sys.argv[1]
+    print("loop " + battle_map)
 except:
     battle_map = None
+    print("mission only")
 while True:
     wait("1413617134671.png")
     first_hokyued = False
