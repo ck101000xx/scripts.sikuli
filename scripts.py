@@ -50,6 +50,7 @@ def fixing_i8():
         wait("1413690300408.png")
         if click_if("1413690337256.png"):
             click(wait("1413690370311.png"))
+            wait("1413690572298.png")
             return True
     return False
 while True:
