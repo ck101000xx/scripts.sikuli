@@ -99,8 +99,8 @@ while True:
 #    click(wait("1413605771793.png"))
     click(wait("1413605794951.png"))
     click(wait("1413605863955.png"))
-    click(wait("1413694329127.png"))
-    click(wait(Pattern("1413694559796.png").similar(0.9)))
+    while click_if("1413694329127.png"): pass
+    click(wait(Pattern("1413694559796.png").similar(0.90)))
     while not exists("1413606152418.png", 0):
         click_if("1413615405871.png")
     click("1413606152418.png")
