@@ -73,13 +73,10 @@ while True:
         if returned:
             for pair in decks[1:]: hokyu(*pair)
         go_port()
-    while True:
         click(wait("1413690676832.png"))
-        if not fixing_i8():
-            go_port()
-            break
-        wait(10)
+        if fixing_i8(): waitVanish("1413690572298.png")
         go_port()
+        
     click(wait("1413605597225.png"))
     if returned_global:
         click(wait("1413633517841.png"))
