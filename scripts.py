@@ -57,10 +57,8 @@ def fixing_i8():
     return False
 try:
     battle_map = sys.argv[1]
-    print("loop " + battle_map)
 except:
     battle_map = None
-    print("mission only")
 while True:
     wait("1413617134671.png")
     first_hokyued = False
@@ -96,8 +94,7 @@ while True:
             click("1413635231796.png")
     else:
         click(wait("1413636959019.png"))
-    if battle_map is "3-2":
-        print("start 3-2")
+    if battle_map == "3-2":
         while not exists("1413693725906.png", 0):
             click_if("1413693351183.png")
         click("1413693725906.png")
@@ -113,7 +110,7 @@ while True:
         mouseMove(Location(0, 0))
         click(wait("1413606152418.png"))
         click(wait("1413606195311.png"))
-    elif battle_map is "1-5":
+    elif battle_map == "1-5":
         click(wait("1413605681622.png"))
         click(wait("1413605771793.png"))
         click(wait("1413605794951.png"))
