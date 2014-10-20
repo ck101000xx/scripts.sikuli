@@ -1,7 +1,7 @@
 Settings.MoveMouseDelay = 0
 setAutoWaitTimeout(FOREVER)
 decks = map(lambda pair: map(lambda pattern: Pattern(pattern).similar(0.9), pair)
-    , [("1413632300064.png", "1413632333979.png"), ("1413632425193.png", "1413632400432.png"), ("1413632475923.png", "1413632448473.png")])
+    , [("images/deck/1/selected.png", "images/deck/1/unselected.png"), ("images/deck/2/selected.png", "images/deck/2/unselected.png"), ("images/deck/2/selected.png", "images/deck/2/unselected.png")])
 def click_if(pattern):
     e = exists(pattern, 0)
     if not e: return False
