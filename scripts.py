@@ -31,9 +31,8 @@ def start_mission(space, mission, deck):
         click(wait("1413633803249.png"))
 
 def hokyu(active, inactive):
-    if not exists(active, 0):
-        click(inactive)
-        wait(active)
+    while not exists(active, 0):
+        click_if(inactive)
     if exists(Pattern("1413632686156.png").similar(0.95), 0):
         while click_if(Pattern("1413632686156.png").similar(0.95)): wait(0.5)
         click(wait("1413605362684.png"))
