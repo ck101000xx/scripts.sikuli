@@ -1,13 +1,31 @@
 Settings.MoveMouseDelay = 0
 setAutoWaitTimeout(FOREVER)
-decks = map(lambda pair: map(lambda pattern: Pattern(pattern).similar(0.9),
-                             pair),
-            [("images/deck/1/selected.png",
-              "images/deck/1/unselected.png"),
-             ("images/deck/2/selected.png",
-                "images/deck/2/unselected.png"),
-             ("images/deck/3/selected.png",
-                "images/deck/3/unselected.png")])
+
+
+class Deck:
+
+    def __init__(self, pattern_selected, pattern_unselected):
+        self.pattern_selected = pattern_selected
+        self.pattern_unselected = pattern_unselected
+
+    @property
+    def selected(self):
+        return exists(self.pattern_selected, 0)
+
+    def select(self):
+        while not self.selected:
+            click_if(self.pattern_unselected)
+
+
+class Mission:
+
+    def __init__(self, pattern_space, pattern_mission):
+        self.pattern_space = pattern_space
+        self.pattern_mission = pattern_mission
+
+    def select(self):
+        while not exists(self.pattern_mission):
+            click_if(sef.pattern_space)
 
 
 def click_if(pattern):
@@ -33,21 +51,17 @@ def mission_result():
     return True
 
 
-def start_mission(space, mission, deck):
-    active, inactive = deck
-    while not click_if(mission):
-        click(space)
+def start_mission(mission, deck):
+    mission.select()
     while not exists("1413605794951.png", 0) and not exists("1413715679772.png", 0):
         pass
     if click_if("1413605794951.png"):
-        while not exists(active, 0):
-            click_if(inactive)
+        deck.select()
         click(wait("1413633803249.png"))
 
 
-def hokyu(active, inactive):
-    while not exists(active, 0):
-        click_if(inactive)
+def hokyu(deck):
+    deck.select()
     if exists(Pattern("1413632686156.png").similar(0.95), 0):
         while click_if(Pattern("1413632686156.png").similar(0.95)):
             wait(0.5)
@@ -71,6 +85,22 @@ def fixing_i8():
             wait("1413690572298.png")
             return True
     return False
+
+decks = {}
+for deck_index in range(1, 3):
+    path = "images/deck/" + str(deck_index)
+    decks[deck_index] = Deck(
+        Pattern(
+            path +
+            "/selected.png").similar(0.9),
+        Pattern(
+            path +
+            "/unselected.png").similar(0.9))
+
+missions = {}
+missions[6] = Mission("1413687889991.png", "1413687157384.png")
+missions[21] = Mission("1413687838412.png", "1413687917048.png")
+
 try:
     battle_map = sys.argv[1]
 except:
@@ -92,11 +122,11 @@ while True:
         mouseMove(Location(10, 10))
         wait("1413605460003.png")
         if not first_hokyued:
-            hokyu(*decks[0])
+            hokyu(decks[1])
             first_hokyued = True
         if returned:
-            for pair in decks[1:]:
-                hokyu(*pair)
+            for deck in [decks[2], decks[3]]:
+                hokyu(deck)
         go_port()
         if battle_map == "3-2":
             click(wait("1413690676832.png"))
@@ -107,8 +137,8 @@ while True:
     click(wait("1413605597225.png"))
     if returned_global:
         click(wait("1413633517841.png"))
-        start_mission("1413687889991.png", "1413687157384.png", decks[1])
-        start_mission("1413687838412.png", "1413687917048.png", decks[2])
+        start_mission(missions[6], decks[2])
+        start_mission(missions[21], decks[3])
         while not exists("1413635164833.png", 0):
             click("1413635231796.png")
     else:
