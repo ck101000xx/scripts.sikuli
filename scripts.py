@@ -1,23 +1,37 @@
 Settings.MoveMouseDelay = 0
 setAutoWaitTimeout(FOREVER)
-decks = map(lambda pair: map(lambda pattern: Pattern(pattern).similar(0.9), pair)
-    , [("images/deck/1/selected.png", "images/deck/1/unselected.png"), ("images/deck/2/selected.png", "images/deck/2/unselected.png"), ("images/deck/3/selected.png", "images/deck/3/unselected.png")])
+decks = map(lambda pair: map(lambda pattern: Pattern(pattern).similar(0.9),
+                             pair),
+            [("images/deck/1/selected.png",
+              "images/deck/1/unselected.png"),
+             ("images/deck/2/selected.png",
+                "images/deck/2/unselected.png"),
+             ("images/deck/3/selected.png",
+                "images/deck/3/unselected.png")])
+
+
 def click_if(pattern):
     e = exists(pattern, 0)
-    if not e: return False
+    if not e:
+        return False
     click(e)
     return True
+
+
 def go_port():
     while exists("1413605460003.png", 0):
         click(Location(10, 10))
     if not exists("1413605597225.png", 2):
         click(Location(10, 10))
+
+
 def mission_result():
     if not click_if("1413631668061.png"):
         return False
     click(wait("1413606152418.png"))
     click(wait("1413606152418.png"))
     return True
+
 
 def start_mission(space, mission, deck):
     active, inactive = deck
@@ -30,16 +44,19 @@ def start_mission(space, mission, deck):
             click_if(inactive)
         click(wait("1413633803249.png"))
 
+
 def hokyu(active, inactive):
     while not exists(active, 0):
         click_if(inactive)
     if exists(Pattern("1413632686156.png").similar(0.95), 0):
-        while click_if(Pattern("1413632686156.png").similar(0.95)): wait(0.5)
+        while click_if(Pattern("1413632686156.png").similar(0.95)):
+            wait(0.5)
         click(wait("1413605362684.png"))
         wait("1413605538080.png")
         return True
     else:
         return False
+
 
 def fixing_i8():
     wait("1413690454984.png")
@@ -78,13 +95,15 @@ while True:
             hokyu(*decks[0])
             first_hokyued = True
         if returned:
-            for pair in decks[1:]: hokyu(*pair)
+            for pair in decks[1:]:
+                hokyu(*pair)
         go_port()
         if battle_map == "3-2":
             click(wait("1413690676832.png"))
-            if fixing_i8(): waitVanish("1413690572298.png")
+            if fixing_i8():
+                waitVanish("1413690572298.png")
             go_port()
-        
+
     click(wait("1413605597225.png"))
     if returned_global:
         click(wait("1413633517841.png"))
@@ -101,7 +120,8 @@ while True:
         click(wait("1413605794951.png"))
         click(wait("1413605863955.png"))
         wait("1413694329127.png")
-        while click_if("1413694329127.png"): pass
+        while click_if("1413694329127.png"):
+            pass
         click(wait(Pattern("1413715867460.png").similar(0.80)))
         while not exists("1413606152418.png", 0):
             click_if("1413615405871.png")
