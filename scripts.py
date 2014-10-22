@@ -25,7 +25,7 @@ class Mission:
 
     def select(self):
         while not exists(self.pattern_mission):
-            click_if(sef.pattern_space)
+            click_if(self.pattern_space)
 
 
 def click_if(pattern):
