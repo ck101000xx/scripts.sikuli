@@ -155,9 +155,9 @@ while True:
     else:
         click(wait("1413636959019.png"))
     if battle_map == "3-2":
-        while not exists("1413693725906.png", 0):
+        while not exists("1413982362256.png", 0):
             click_if("1413693351183.png")
-        click("1413693725906.png")
+        click("1413982362256.png")
         click(wait("1413605794951.png"))
         click(wait("1413605863955.png"))
         wait("1413694329127.png")
