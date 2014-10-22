@@ -81,7 +81,7 @@ def dead():
 
 def fixing_i8():
     wait("1413690454984.png")
-    if exists("1413979036617.png", 0):
+    if exists("1413980818091.png", 0):
         return True
     click(wait("1413690038857.png"))
     wait("1413690128632.png")
@@ -89,7 +89,7 @@ def fixing_i8():
         wait("1413690300408.png")
         if click_if("1413690337256.png"):
             click(wait("1413690370311.png"))
-            wait("1413979036617.png")
+            wait("1413980818091.png")
             return True
     return False
 
@@ -142,14 +142,14 @@ while True:
             go_port()
             click(wait("1413690676832.png"))
             if fixing_i8():
-                waitVanish("1413979036617.png")
+                waitVanish("1413980818091.png")
             go_port()
 
     click(wait("1413605597225.png"))
     if returned_global:
         click(wait("1413633517841.png"))
-        start_mission(missions[6], decks[2])
-        start_mission(missions[21], decks[3])
+#        start_mission(missions[6], decks[2])
+#        start_mission(missions[21], decks[3])
         while not exists("1413635164833.png", 0):
             click("1413635231796.png")
     else:
