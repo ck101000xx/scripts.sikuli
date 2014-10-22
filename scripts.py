@@ -85,7 +85,7 @@ def fixing_i8():
         return True
     click(wait("1413690038857.png"))
     wait("1413690128632.png")
-    if click_if("1413690179720.png"):
+    if click_if("1413984842758.png"):
         wait("1413690300408.png")
         if click_if("1413690337256.png"):
             click(wait("1413690370311.png"))
