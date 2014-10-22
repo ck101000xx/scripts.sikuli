@@ -76,12 +76,12 @@ def dead():
     wait("1413690454984.png")
     click(wait("1413690038857.png"))
     wait("1413690128632.png")
-    return exists("1413978749440.png", 0)
+    return exists("1413983256868.png", 0)
 
 
 def fixing_i8():
     wait("1413690454984.png")
-    if exists("1413980818091.png", 0):
+    if exists("1413983325666.png", 0):
         return True
     click(wait("1413690038857.png"))
     wait("1413690128632.png")
@@ -89,7 +89,7 @@ def fixing_i8():
         wait("1413690300408.png")
         if click_if("1413690337256.png"):
             click(wait("1413690370311.png"))
-            wait("1413980818091.png")
+            wait("1413983325666.png")
             return True
     return False
 
@@ -142,7 +142,7 @@ while True:
             go_port()
             click(wait("1413690676832.png"))
             if fixing_i8():
-                waitVanish("1413980818091.png")
+                waitVanish("1413983325666.png")
             go_port()
 
     click(wait("1413605597225.png"))
@@ -155,9 +155,9 @@ while True:
     else:
         click(wait("1413636959019.png"))
     if battle_map == "3-2":
-        while not exists("1413982362256.png", 0):
+        while not exists("1413983373801.png", 0):
             click_if("1413693351183.png")
-        click("1413982362256.png")
+        click("1413983373801.png")
         click(wait("1413605794951.png"))
         click(wait("1413605863955.png"))
         wait("1413694329127.png")
