@@ -9,7 +9,7 @@ class Navigator:
     def navigate_to(self, target_scene):
         if current_scene == target_scene:
             return
-        path = shortest_path(self.graph, self.current_scene, target_scene)
+        path = nx.shortest_path(self.graph, self.current_scene, target_scene)
         for from_scene, to_scene in zip(path[:-1], path):
             self.graph[from_scene][to_scene]["action"]()
 
