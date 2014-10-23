@@ -81,7 +81,7 @@ def dead():
 
 def fixing_i8():
     wait("1413690454984.png")
-    if exists("1413983325666.png", 0):
+    if exists("1414058210228.png", 0):
         return True
     click(wait("1413690038857.png"))
     wait("1413690128632.png")
@@ -89,7 +89,7 @@ def fixing_i8():
         wait("1413690300408.png")
         if click_if("1413690337256.png"):
             click(wait("1413690370311.png"))
-            wait("1413983325666.png")
+            wait("1414058210228.png")
             return True
     return False
 
@@ -139,7 +139,7 @@ while True:
 
             click(wait("1413690676832.png"))
             if fixing_i8():
-                waitVanish("1413983325666.png")
+                waitVanish("1414058210228.png")
             go_port()
             click(wait("1413690676832.png"))
             if dead():
