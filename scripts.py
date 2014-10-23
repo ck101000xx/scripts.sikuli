@@ -136,13 +136,14 @@ while True:
                 hokyu(deck)
         go_port()
         if battle_map == "3-2":
-            click(wait("1413690676832.png"))
-            if dead():
-                sys.exit()
-            go_port()
+
             click(wait("1413690676832.png"))
             if fixing_i8():
                 waitVanish("1413983325666.png")
+            go_port()
+            click(wait("1413690676832.png"))
+            if dead():
+                sys.exit()
             go_port()
 
     click(wait("1413605597225.png"))
