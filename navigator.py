@@ -10,18 +10,20 @@ class Navigator:
         self.graph = InMemoryGrph()
         self.actions = {}
         self.current_scene = current_scene
-    def add_path(self, from_scene, to_scene, action):
-        pair = from_scene.value, to_scene.value
-        self.graph.addDirectedSimpleEdge(from_scene.value, to_scene.value)
-        self.actions[pair] = action
+    def add_action(self, source, target, action):
+        edge = source.value, target.value
+        if not (source is target or edge in self.actions):
+            self.graph.addDirectedSimpleEdge(*edge)
+        self.actions[edge] = action
     def navigate_to(self, target_scene):
         if current_scene == target_scene:
+            (actions[(current_scene, target_scene)] or lambda: None)()
             return
         path = self.graph.getShortestPath( self.current_scene.value, target_scene.value).toVertexArray()
         for edge in zip(path[:-1], path):
             self.action[edge]()
-
-Scene = Enum("Scene", "hokyu port fixing")
+ 
+Scene = Enum("Scene", ["hokyu", "port", "fixing", "shugeki_menu", "mission"])
 
 navigator = Navigator()
 
@@ -36,7 +38,7 @@ def click_port_button():
         click(Location(10, 10))
 
 for scene in [Scene.hokyu, Scene.fixing]:
-    navigator.add_path(scene, Scene.port, click_port_button)
+    navigator.add_action(scene, Scene.port, click_port_button)
 
 def click_and_wait_sidebar(button):
     def nav():
@@ -44,4 +46,4 @@ def click_and_wait_sidebar(button):
         wait("1413605460003.png")
     return nav
 
-navigator.add_path(Scene.port, Scene.hokyu, click_and_wait_sidebar("1413617134671.png"))
+navigator.add_action(Scene.port, Scene.hokyu, click_and_wait_sidebar("1413617134671.png"))
