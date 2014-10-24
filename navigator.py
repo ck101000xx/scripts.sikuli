@@ -12,7 +12,7 @@ from enum import Enum
 
 class Navigator:
 
-    def __init__(self, current_scene="port"):
+    def __init__(self, current_scene=Scene.port):
         self.graph = InMemoryGrph()
         self.actions = {}
         self.current_scene = current_scene
