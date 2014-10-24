@@ -1,3 +1,4 @@
+from sikuli import *
 Settings.MoveMouseDelay = 0
 setAutoWaitTimeout(FOREVER)
 
