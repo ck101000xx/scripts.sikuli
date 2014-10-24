@@ -39,9 +39,11 @@ navigator = Navigator()
 
 
 def scene(scene):
-    def decorator(f):
-        navigator.navigate_to(scene)
-        f()
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            navigator.navigate_to(scene)
+            return func(*args, **kwargs)
+        return wrapper
     return decorator
 
 
