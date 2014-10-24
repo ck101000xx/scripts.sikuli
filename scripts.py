@@ -1,3 +1,4 @@
+from sikuli import *
 Settings.MoveMouseDelay = 0
 setAutoWaitTimeout(FOREVER)
 
@@ -94,7 +95,7 @@ def fixing_i8():
     return False
 
 decks = {}
-for deck_index in range(1, 3):
+for deck_index in range(1, 3 + 1):
     path = "images/deck/" + str(deck_index)
     decks[deck_index] = Deck(
         Pattern(
