@@ -30,11 +30,15 @@ class Navigator
     else
       fail "Cannot find a path from #{@current_scene} to #{target_scene}"
     end
-    if block_given?
-      yield
-      navigate_to(@current_scene)
-    end
   end
+end
+
+navigator = Navigator.new
+
+def scene(scene)
+   navigator.navigate_to(scene)
+   yield
+   navigator.navigate_to(scene)
 end
 
 [:hokyu, :fixing].each do |scene|
