@@ -36,9 +36,9 @@ end
 navigator = Navigator.new
 
 def scene(scene)
-   navigator.navigate_to(scene)
-   yield
-   navigator.navigate_to(scene)
+  navigator.navigate_to(scene)
+  yield
+  navigator.navigate_to(scene)
 end
 
 [:hokyu, :fixing].each do |scene|
