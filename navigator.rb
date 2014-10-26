@@ -40,13 +40,15 @@ def scene(scene)
   result
 end
 
-[:hokyu, :fixing].each do |scene|
+[:hokyu, :fixing, :shutsugeki].each do |scene|
   navigator.set_action scene, :port do
-    click Location.new(10, 10) while exists '1413605460003.png', 0
+    click Location.new(10, 10) while exists 'images/sidebar/port.png', 0
   end
 end
 
-navigator.set_action :port, :hokyu do
-  click '1413617134671.png'
-  wait '1413605460003.png'
+[:hokyu, :fixing, :shutsugeki].each do |scene|
+  navigator.set_action :port, scene do
+    click "images/port/menu/#{scene}.png"
+    wait 'images/sidebar/port.png'
+  end
 end
