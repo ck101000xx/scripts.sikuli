@@ -1,6 +1,8 @@
 require 'sikulix'
 include Sikulix
 require 'navigator'
+require 'missions'
+require 'util'
 
 Settings.MoveMouseDelay = 0
 setAutoWaitTimeout FOREVER
@@ -18,22 +20,6 @@ class Deck
   def select
     click_if @pattern_unselected until selected
   end
-end
-
-class Mission
-  def initialize(pattern_space, pattern_mission)
-    @pattern_space = pattern_space
-    @pattern_mission = pattern_mission
-  end
-
-  def select
-    click_if @pattern_space until exists @pattern_mission
-  end
-end
-
-def click_if(pattern)
-  click e if e = exists(pattern, 0)
-  !!e
 end
 
 def mission_result
@@ -96,10 +82,6 @@ decks = (1..4).reduce({}) do |hash, index|
   hash[index] = Deck.new(*patterns.map { |pattern| pattern.similar(0.9) })
 end
 
-missions = {
-  6 => Mission.new('1413687889991.png', '1413687157384.png'),
-  21 => Mission.new('1413687838412.png', '1413687917048.png')
-}
 battle_map = ARGV[1]
 loop do
   first_hokyued = false
