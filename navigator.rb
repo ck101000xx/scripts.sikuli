@@ -41,12 +41,12 @@ def scene(scene)
 end
 
 [:hokyu, :fixing].each do |scene|
-  navigator.add_action scene, :port do
+  navigator.set_action scene, :port do
     click Location.new(10, 10) while exists '1413605460003.png', 0
   end
 end
 
-navigator.add_action :port, :hokyu do
+navigator.set_action :port, :hokyu do
   click '1413617134671.png'
   wait '1413605460003.png'
 end
