@@ -21,9 +21,7 @@ class Navigator
     if current_scene_id == target_scene_id
       @actions[current_scene_id][target_scene_id].call
     elsif path = @graph.getShortestPath(current_scene_id, target_scene_id)
-      path.toVertexArray[1...-1].each_index do |index|
-        @actions[path[index]][path[index + 1]].call
-      end
+      path[1..-1].zip(path) { |(target, source)| @actions[source][target].call }
       @current_scene = target_scene
     else
       fail "Cannot find a path from #{@current_scene} to #{target_scene}"
