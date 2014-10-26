@@ -1,5 +1,5 @@
 require 'sikulix'
-include sikulix
+include Sikulix
 require 'navigator'
 
 Settings.MoveMouseDelay = 0
