@@ -5,9 +5,7 @@ include Sikulix
 class Navigator
   def initialize(current_scene = :port)
     @graph = InMemoryGrph.new
-    @actions = Hash.new do |hash, key|
-      hash[key] ||=  Hash.new { |hash, key| hash[key] ||= Proc.new }
-    end
+    @actions = Hash.new { |hash, key| hash[key] =  Hash.new(Proc.new) }
     @current_scene = current_scene
   end
 
