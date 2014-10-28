@@ -99,6 +99,7 @@ for deck_index in range(1, 3 + 1):
             "/unselected.png").similar(0.9))
 
 missions = {}
+missions[5] = Mission("images/mission/5.png", "1413687157384.png")
 missions[6] = Mission("1413687889991.png", "1413687157384.png")
 missions[21] = Mission("1413687838412.png", "1413687917048.png")
 
@@ -138,7 +139,7 @@ while True:
     click(wait("1413605597225.png"))
     if returned_global:
         click(wait("1413633517841.png"))
-        start_mission(missions[6], decks[2])
+        start_mission(missions[5], decks[2])
         start_mission(missions[21], decks[3])
         while not exists("1413635164833.png", 0):
             click("1413635231796.png")
