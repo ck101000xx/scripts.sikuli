@@ -163,7 +163,9 @@ while True:
         click(wait("1413606152418.png"))
         click(wait("1413606195311.png"))
     elif battle_map == "1-1":
-        click(wait("images/battle/field/1-1.png"))
+        mouseMove(Location(10, 10))
+        wait("1413605681622.png")
+        click(wait(Pattern("images/battle/field/1-1.png").exact()))
         click(wait("1413605794951.png"))
         click(wait("1413605863955.png"))
         while not exists("1413606152418.png", 0):
