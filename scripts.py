@@ -151,11 +151,11 @@ while True:
             for deck in [decks[2], decks[3], decks[4]]:
                 hokyu(deck)
         if battle_map == "1-1":
-            while not exists("1413690454984.png", 0)
+            while not exists("1413690454984.png", 0):
                 click_if("1414759360717.png")
 	    fix_akashi()
         if battle_map == "3-2":
-            while not exists("1413690454984.png", 0)
+            while not exists("1413690454984.png", 0):
                 click_if("1414759360717.png")
             if fixing_i8():
                 waitVanish("1413690572298.png")
