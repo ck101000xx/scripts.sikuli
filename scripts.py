@@ -99,7 +99,7 @@ for deck_index in [1, 2, 3, 4]:
             "/unselected.png").similar(0.9))
 
 missions = {}
-for space, mission in [(1, 5), (1, 6), (3, 21)]:
+for space, mission in [(1,2), (1, 5), (1, 6), (3, 21)]:
     path_space = "images/mission/space/" + str(space) + ".png"
     path_mission = "images/mission/" + str(mission) + ".png"
     missions[mission] = Mission(path_space, path_mission)
