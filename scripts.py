@@ -25,7 +25,7 @@ class Mission:
         self.pattern_mission = pattern_mission
 
     def select(self):
-        while not exists(self.pattern_mission):
+        while not click_if(self.pattern_mission):
             click_if(self.pattern_space)
 
 
@@ -128,7 +128,7 @@ while True:
             hokyu(decks[1])
             first_hokyued = True
         if returned:
-            for deck in [decks[2], decks[3]]:
+            for deck in [decks[2], decks[3], decks[4]]:
                 hokyu(deck)
         go_port()
         if battle_map == "3-2":
