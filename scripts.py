@@ -142,6 +142,7 @@ while True:
         click(wait("1413633517841.png"))
         start_mission(missions[5], decks[2])
         start_mission(missions[21], decks[3])
+        start_mission(missions[2], decks[4])
         while not exists("1413635164833.png", 0):
             click("1413635231796.png")
     else:
