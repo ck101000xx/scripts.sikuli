@@ -99,9 +99,10 @@ for deck_index in [1, 2, 3, 4]:
             "/unselected.png").similar(0.9))
 
 missions = {}
-missions[5] = Mission("1413687889991.png", "images/mission/5.png")
-missions[6] = Mission("1413687889991.png", "1413687157384.png")
-missions[21] = Mission("1413687838412.png", "1413687917048.png")
+for space, mission in [(1, 5), (1, 6), (3, 21)]:
+    path_space = "images/mission/space/" + str(space) + ".png"
+    path_mission = "images/mission/" + str(mission) + ".png"
+    missions[mission] = Mission(path_space, path_mission)
 
 try:
     battle_map = sys.argv[1]
