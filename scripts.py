@@ -99,7 +99,7 @@ for deck_index in range(1, 3 + 1):
             "/unselected.png").similar(0.9))
 
 missions = {}
-missions[5] = Mission("images/mission/5.png", "1413687157384.png")
+missions[5] = Mission("1413687889991.png", "images/mission/5.png")
 missions[6] = Mission("1413687889991.png", "1413687157384.png")
 missions[21] = Mission("1413687838412.png", "1413687917048.png")
 
