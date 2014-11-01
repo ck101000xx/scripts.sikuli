@@ -75,23 +75,17 @@ def hokyu(deck):
 
 def fix_akashi():
     wait("1413690454984.png")
-    check_akashi = lambda: exists("1414757987750.png", 0) or exists("1414758102359.png", 0)
-    if check_akashi():
-        while check_akashi():
-            pass
-        return
     click(wait("1413690038857.png"))
     wait("1413690128632.png")
     if not click_if("1414757939751.png"):
         return
     wait("1413690300408.png")
+    if exists("1414834140414.png", 0):
+        return
+    click(Pattern("1413690300408.png").targetOffset(52,0))
     if not click_if("1413690337256.png"):
         return
     click(wait("1413690370311.png"))
-    while not check_akashi():
-        pass
-    while check_akashi():
-        pass
 
 def fixing_i8():
     wait("1413690454984.png")
