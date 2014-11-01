@@ -160,6 +160,7 @@ while True:
     click(wait("1413605597225.png"))
     if returned_global:
         click(wait("1413633517841.png"))
+	wait("1414842642178.png")
         start_mission(missions[5], decks[2])
         start_mission(missions[21], decks[3])
         start_mission(missions[2], decks[4])
