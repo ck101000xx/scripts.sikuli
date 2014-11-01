@@ -135,19 +135,21 @@ while True:
         if not returned and first_hokyued:
             print('hokyued all')
             break
-        click(wait("1413617134671.png"))
-        mouseMove(Location(10, 10))
-        wait("1413605460003.png")
+        if battle_map == "1-1":
+            click(wait("1413690676832.png"))
+            fix_akashi()
+            while not exists("1413605538080.png", 0):
+                click_if("1414835147219.png")
+        else:
+            click(wait("1413617134671.png"))
+            mouseMove(Location(10, 10))
+            wait("1413605460003.png")
         if not first_hokyued:
             hokyu(decks[1])
             first_hokyued = True
         if returned:
             for deck in [decks[2], decks[3], decks[4]]:
                 hokyu(deck)
-        if battle_map == "1-1":
-            while not exists("1413690454984.png", 0):
-                click_if("1414759360717.png")
-	    fix_akashi()
         if battle_map == "3-2":
             while not exists("1413690454984.png", 0):
                 click_if("1414759360717.png")
