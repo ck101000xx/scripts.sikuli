@@ -85,7 +85,8 @@ def fix_akashi():
     click(Pattern("1413690300408.png").targetOffset(52,0))
     if not click_if("1413690337256.png"):
         return
-    click(wait("1413690370311.png"))
+    reg = Region(550, 380, 130, 40)
+    reg.click(reg.wait("1413690370311.png"))
 
 def fixing_i8():
     wait("1413690454984.png")
