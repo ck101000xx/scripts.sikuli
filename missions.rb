@@ -9,7 +9,7 @@ class Mission
   end
 
   def select
-    click_if @pattern_space until exists @pattern_mission
+    click_if @pattern_space until click_if @pattern_mission
   end
 end
 
