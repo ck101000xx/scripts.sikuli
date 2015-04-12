@@ -1,7 +1,7 @@
 from sikuli import *
 Settings.MoveMouseDelay = 0
 setAutoWaitTimeout(FOREVER)
-
+import random
 
 class Deck:
 
@@ -213,5 +213,5 @@ while True:
         click(wait("1413606152418.png"))
         click(wait("1413606195311.png"))
     else:
-        wait(5 * 60)
+        wait(random.randint(240, 360))
         go_port()
