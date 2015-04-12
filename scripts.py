@@ -38,8 +38,8 @@ def click_if(pattern):
 
 
 def go_port():
-    while exists("1413605460003.png", 1):
-        click(Location(10, 10))
+    click(Location(10, 10))
+    wait(3)
     if not exists("1413605597225.png", 2):
         click(Location(10, 10))
 
